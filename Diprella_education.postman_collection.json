@@ -1,0 +1,600 @@
+{
+	"info": {
+		"_postman_id": "d8662986-1300-4d29-9ffd-1962389a02ce",
+		"name": "Diprella_education",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sign Up",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "adf4de59-73ae-435d-84b1-5e0ecb327e6f",
+						"type": "text/javascript",
+						"exec": [
+							"eval(globals.PostmanBDD);",
+							"",
+							"eval(globals.СommonTestsForSuccessfullResponce)();",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "first_name",
+							"value": "FN9",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "LN9",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "test9@ukr.net",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "999qwerty",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/sign_up",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"sign_up"
+					]
+				},
+				"description": "Registration"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "61363e89-1e83-44cd-9268-8108a0493265",
+						"type": "text/javascript",
+						"exec": [
+							"eval(globals.PostmanBDD);",
+							"",
+							"eval(globals.СommonTestsForSuccessfullResponce)();",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "test5@ukr.net",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "555qwerty",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": " Get category/list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "476d046b-c0ad-4724-a182-82fde6a16dd0",
+						"type": "text/javascript",
+						"exec": [
+							"eval(globals.PostmanBDD); ",
+							"describe('Get Category List', () => { ",
+							"\tit('Test Passed', () => { ",
+							"\t\tresponse.should.have.status(200); ",
+							"\t\tresponse.should.be.json; ",
+							"\t\tresponse.body.should.not.be.empty; ",
+							"\t});",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token Sign In}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://beta.diprella.com/api/category/list",
+					"protocol": "https",
+					"host": [
+						"beta",
+						"diprella",
+						"com"
+					],
+					"path": [
+						"api",
+						"category",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post /course/create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "270ed2a6-8d2a-4cc9-9092-8ca966d3955e",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.set(\"Token Sign In\", \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE1NiwiaXNzIjoiaHR0cHM6Ly9iZXRhLmRpcHJlbGxhLmNvbS9hcGkvbG9naW4iLCJpYXQiOjE1MzM4MzQzODEsImV4cCI6MTUzNjQ2MjM4MSwibmJmIjoxNTMzODM0MzgxLCJqdGkiOiI3VzdhczlvU0U4S2xZQ2NLIn0.hcbFMrTMfzQk3WGV9cAK_M0PK1oOMaVMtLmQVEjczCc\");",
+							"",
+							"",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"Created\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE1NiwiaXNzIjoiaHR0cHM6Ly9iZXRhLmRpcHJlbGxhLmNvbS9hcGkvbG9naW4iLCJpYXQiOjE1MzM4MzQzODEsImV4cCI6MTUzNjQ2MjM4MSwibmJmIjoxNTMzODM0MzgxLCJqdGkiOiI3VzdhczlvU0U4S2xZQ2NLIn0.hcbFMrTMfzQk3WGV9cAK_M0PK1oOMaVMtLmQVEjczCc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "description",
+							"value": "D2",
+							"type": "text"
+						},
+						{
+							"key": "lang",
+							"value": "Ukrainian",
+							"type": "text"
+						},
+						{
+							"key": "level",
+							"value": "Beginner",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "Course Name 2",
+							"type": "text"
+						},
+						{
+							"key": "privacy",
+							"value": "public",
+							"sessionValue": "public",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://beta.diprella.com/api/course/create",
+					"protocol": "https",
+					"host": [
+						"beta",
+						"diprella",
+						"com"
+					],
+					"path": [
+						"api",
+						"course",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get profile/package/limit",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "48ab07fe-7ceb-4892-90d7-e841310987b8",
+						"type": "text/javascript",
+						"exec": [
+							"eval(globals.PostmanBDD);",
+							"",
+							"eval(globals.СommonTestsForSuccessfullResponce)();",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE1NiwiaXNzIjoiaHR0cHM6Ly9iZXRhLmRpcHJlbGxhLmNvbS9hcGkvbG9naW4iLCJpYXQiOjE1MzM4MzQzODEsImV4cCI6MTUzNjQ2MjM4MSwibmJmIjoxNTMzODM0MzgxLCJqdGkiOiI3VzdhczlvU0U4S2xZQ2NLIn0.hcbFMrTMfzQk3WGV9cAK_M0PK1oOMaVMtLmQVEjczCc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://beta.diprella.com/api/profile/package/limit",
+					"protocol": "https",
+					"host": [
+						"beta",
+						"diprella",
+						"com"
+					],
+					"path": [
+						"api",
+						"profile",
+						"package",
+						"limit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST image/upload",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a99eb23d-924d-4004-8b79-2ee912c6295d",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token Sign In}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"sessionValue": {
+								"0": {}
+							},
+							"type": "file"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://beta.diprella.com/api/image/upload",
+					"protocol": "https",
+					"host": [
+						"beta",
+						"diprella",
+						"com"
+					],
+					"path": [
+						"api",
+						"image",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST event/create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c86b479a-36a3-4327-8417-308fa271aead",
+						"type": "text/javascript",
+						"exec": [
+							"eval(globals.PostmanBDD);",
+							"",
+							"eval(globals.СommonTestsForSuccessfullResponce)();",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE1NiwiaXNzIjoiaHR0cHM6Ly9iZXRhLmRpcHJlbGxhLmNvbS9hcGkvbG9naW4iLCJpYXQiOjE1MzM4MzQzODEsImV4cCI6MTUzNjQ2MjM4MSwibmJmIjoxNTMzODM0MzgxLCJqdGkiOiI3VzdhczlvU0U4S2xZQ2NLIn0.hcbFMrTMfzQk3WGV9cAK_M0PK1oOMaVMtLmQVEjczCc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "course_id",
+							"value": "90",
+							"type": "text"
+						},
+						{
+							"key": "date_from",
+							"value": "2018-08-10",
+							"type": "text"
+						},
+						{
+							"key": "value",
+							"value": "UTC +01:00",
+							"type": "text"
+						},
+						{
+							"key": "label",
+							"value": "(UTC+01:00)Africa/Algiers",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "descr test 2",
+							"type": "text"
+						},
+						{
+							"key": "duration",
+							"value": "5400",
+							"type": "text"
+						},
+						{
+							"key": "duration_value",
+							"value": "01:30:00",
+							"type": "text"
+						},
+						{
+							"key": "image_cover",
+							"value": "/uploads/docs/1c/156/UETdndDtqzWqxBOV.png",
+							"type": "text"
+						},
+						{
+							"key": "max_viewers",
+							"value": "15",
+							"type": "text"
+						},
+						{
+							"key": "module_id",
+							"value": "88",
+							"type": "text"
+						},
+						{
+							"key": "type_event",
+							"value": "webinar",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "EVENT TEST",
+							"sessionValue": "EVENT TEST",
+							"type": "text"
+						},
+						{
+							"key": "timezone",
+							"value": "UTC +01:00",
+							"sessionValue": "UTC +01:00",
+							"type": "text"
+						},
+						{
+							"key": "start_time",
+							"value": "21:12:00",
+							"sessionValue": "21:12:00",
+							"type": "text"
+						},
+						{
+							"key": "timezone_region",
+							"value": "Africa/Algiers",
+							"sessionValue": "Africa/Algiers",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://beta.diprella.com/api/event/create",
+					"protocol": "https",
+					"host": [
+						"beta",
+						"diprella",
+						"com"
+					],
+					"path": [
+						"api",
+						"event",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": " POST course/settings",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "39d3608f-6515-4649-ac59-39882adf6a17",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"status\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE1NiwiaXNzIjoiaHR0cHM6Ly9iZXRhLmRpcHJlbGxhLmNvbS9hcGkvbG9naW4iLCJpYXQiOjE1MzM4MzQzODEsImV4cCI6MTUzNjQ2MjM4MSwibmJmIjoxNTMzODM0MzgxLCJqdGkiOiI3VzdhczlvU0U4S2xZQ2NLIn0.hcbFMrTMfzQk3WGV9cAK_M0PK1oOMaVMtLmQVEjczCc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "course_id",
+							"value": "90",
+							"sessionValue": "90",
+							"type": "text"
+						},
+						{
+							"key": "end_date",
+							"value": "unlimited",
+							"sessionValue": "unlimited",
+							"type": "text"
+						},
+						{
+							"key": "publish",
+							"value": "true",
+							"sessionValue": "true",
+							"type": "text"
+						},
+						{
+							"key": "start_date",
+							"value": "2018-08-09",
+							"sessionValue": "2018-08-09",
+							"type": "text"
+						},
+						{
+							"key": "time_zone",
+							"value": "UTC +03:00",
+							"sessionValue": "UTC +03:00",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "free",
+							"sessionValue": "free",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://beta.diprella.com/api/course/settings",
+					"protocol": "https",
+					"host": [
+						"beta",
+						"diprella",
+						"com"
+					],
+					"path": [
+						"api",
+						"course",
+						"settings"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
