@@ -1,0 +1,19 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "API": "newman run Diprella_education.postman_collection.json -e Diprella_Test_Beta.postman_environment.json -g MyWorkspace.postman_globals.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eva3113/API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eva3113/API/issues"
+  },
+  "homepage": "https://github.com/eva3113/API#readme"
+}
